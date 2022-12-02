@@ -1,0 +1,14 @@
+version: "3"
+services:
+  notebook:
+    image: toms/micropython_notebook
+    build: .
+    ports:
+      - "8883:8888"
+      - "5008:5008/udp"
+      - "5008:5008/tcp"
+    user: root
+    volumes:
+      - ./.jupyter:/home/jovyan/.jupyter
+      - ./.cache:/home/jovyan/.cache
+      - ./work:/home/jovyan/work
